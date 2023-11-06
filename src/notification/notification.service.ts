@@ -12,8 +12,9 @@ export class NotificationService {
     private readonly emailService: EmailService,
   ) {}
 
-  @Cron(CronExpression.EVERY_DAY_AT_1AM) // La expresión cron para ejecutar a la 1 AM todos los días
+  @Cron(CronExpression.EVERY_10_SECONDS) // La expresión cron para ejecutar a la hora de 8 AM todos los días
   async generateNotifications() {
+    console.log('Called every 10 seconds')
     // Realizar una consulta SQL personalizada en la tabla sin clave primaria
     try {
       const results = await this.entityManager
@@ -29,9 +30,18 @@ export class NotificationService {
         .getRawMany()
 
       await this.emailService.sendEmail(results)
-      this.logger.debug('Called every day at 1 AM')
+      this.logger.debug('Called every day at 8 AM')
     } catch (error) {
       console.error('Error al ejecutar la consulta SQL:', error)
     }
   }
 }
+/* SELECT e137055050089a4456af861af305200.pa.*, u.nombre, u.estado_comercial, u.tipo_unidad, cli.email
+FROM e137055050089a4456af861af305200.pagos pa
+LEFT JOIN e137055050089a4456af861af305200.unidades u ON pa.codigo_proforma = u.codigo_proforma
+LEFT JOIN e137055050089a4456af861af305200.clientes cli ON cli.documento = pa.documento_cliente
+WHERE pa.fecha_vcto = CURRENT_DATE + INTERVAL '7 days'
+  AND fecha_pago IS NULL
+  AND pa.codigo_proforma = u.codigo_proforma
+  AND pa.documento_cliente = cli.documento;
+ */

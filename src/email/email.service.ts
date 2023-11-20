@@ -90,7 +90,8 @@ export class EmailService {
     torreSubDivision: string,
     capitalizedNombresCliente: string[],
   ): string {
-    const imagePath = '/public/antencion_cliente.jpg'
+    const imagePath =
+      'https://github.com/danqwas/notification-service/blob/f60087cf391e7aa5c36e44c3bda34cb4539139bc/public/antencion_cliente.jpg'
     return `<!DOCTYPE html>
   <html>
     <head>

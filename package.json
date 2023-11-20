@@ -1,7 +1,7 @@
 {
   "name": "notification-service",
   "version": "0.0.1",
-  "description": "",
+  "description": "<p align=\"center\">   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"200\" alt=\"Nest Logo\" /></a> </p>",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -25,6 +25,7 @@
     "@nestjs/core": "^10.2.8",
     "@nestjs/platform-express": "^10.2.8",
     "@nestjs/schedule": "^4.0.0",
+    "@nestjs/serve-static": "^4.0.0",
     "@nestjs/typeorm": "^10.0.0",
     "mysql2": "^3.6.3",
     "nodemailer": "^6.9.7",
@@ -78,5 +79,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
   }
 }

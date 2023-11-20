@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { Cron, CronExpression } from '@nestjs/schedule'
+
 import { EmailService } from 'src/email/email.service'
 import { EntityManager } from 'typeorm'
 
@@ -17,20 +18,27 @@ export class NotificationService {
     console.log('Called every 10 seconds')
     // Realizar una consulta SQL personalizada en la tabla sin clave primaria
     try {
+      const text = '2023-11-11'
+      console.log(
+        '🚀 ~ file: notification.service.ts:22 ~ NotificationService ~ generateNotifications ~ text:',
+        text,
+      )
       const results = await this.entityManager
         .createQueryBuilder()
-        .select('pa.*, u.nombre,u.estado_comercial, u.tipo_unidad, cli.email')
+        .select(
+          'pa.*, u.nombre,u.estado_comercial, u.nombre_subdivision,u.tipo_unidad, cli.email',
+        )
         .from('pagos', 'pa')
         .leftJoin('unidades', 'u', 'pa.codigo_proforma = u.codigo_proforma')
         .leftJoin('clientes', 'cli', 'cli.documento = pa.documento_cliente')
-        .where('pa.fecha_vcto = DATE_ADD(CURDATE(), INTERVAL 7 DAY)')
+        .where(`pa.fecha_vcto = DATE_ADD('2023-11-14', INTERVAL 7 DAY)`)
         .andWhere('fecha_pago IS NULL')
         .andWhere('pa.codigo_proforma = u.codigo_proforma')
         .andWhere('pa.documento_cliente = cli.documento')
         .getRawMany()
 
-      await this.emailService.sendEmail(results)
-      this.logger.debug('Called every day at 8 AM')
+      const data = await this.emailService.sendEmail(results)
+      this.logger.debug('Called every day at 8 AM', { data })
     } catch (error) {
       console.error('Error al ejecutar la consulta SQL:', error)
     }

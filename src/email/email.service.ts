@@ -91,7 +91,7 @@ export class EmailService {
     capitalizedNombresCliente: string[],
   ): string {
     const imagePath =
-      'https://github.com/danqwas/notification-service/blob/f60087cf391e7aa5c36e44c3bda34cb4539139bc/public/antencion_cliente.jpg'
+      'https://raw.githubusercontent.com/danqwas/notification-service/f60087cf391e7aa5c36e44c3bda34cb4539139bc/public/antencion_cliente.jpg'
     return `<!DOCTYPE html>
   <html>
     <head>

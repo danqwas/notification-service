@@ -76,7 +76,7 @@ export class Pago {
 
   @Column()
   interes_vencido: string;
-  // sfd
+  // sfdsdf
   @Column()
   descuento: string;
 

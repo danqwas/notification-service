@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm'
 
-@Entity()
+@Entity({ name: 'pagos' })
 export class Pago {
   @PrimaryColumn({ type: 'uuid', insert: false, select: false, update: false })
   identificador: never

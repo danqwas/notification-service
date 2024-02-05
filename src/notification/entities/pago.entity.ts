@@ -1,139 +1,139 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity({ name: 'pagos' })
 export class Pago {
   @PrimaryColumn({ type: 'uuid', insert: false, select: false, update: false })
-  identificador: never
+  identificador: never;
 
   @Column()
-  codigo_proyecto: string
+  codigo_proyecto: string;
 
   @Column()
-  nombre_proyecto: string
+  nombre_proyecto: string;
 
   @Column()
-  nombres_cliente: string
+  nombres_cliente: string;
 
   @Column()
-  apellidos_cliente: string
+  apellidos_cliente: string;
 
   @Column()
-  documento_cliente: string
+  documento_cliente: string;
 
   @Column()
-  codigo_proforma: string
+  codigo_proforma: string;
 
   @Column()
-  numero_contrato: string
+  numero_contrato: string;
 
   @Column()
-  fecha_contrato: string
+  fecha_contrato: string;
 
   @Column()
-  tipo_cronograma: string
+  tipo_cronograma: string;
 
   @Column()
-  nombre: string
+  nombre: string;
 
   @Column()
-  etiqueta: string
+  etiqueta: string;
 
   @Column()
-  moneda_venta: string
+  moneda_venta: string;
 
   @Column()
-  fecha_vcto: string
+  fecha_vcto: string;
 
   @Column()
-  fecha_pago: string
+  fecha_pago: string;
 
   @Column()
-  monto_programado: string
+  monto_programado: string;
 
   @Column()
-  monto_pagado: string
+  monto_pagado: string;
 
   @Column()
-  saldo: string
+  saldo: string;
 
   @Column()
-  saldo_precio: string
+  saldo_precio: string;
 
   @Column()
-  mora: string
+  mora: string;
 
   @Column()
-  capital: string
+  capital: string;
 
   @Column()
-  interes_compensatorio: string
+  interes_compensatorio: string;
 
   @Column()
-  interes_inicial: string
+  interes_inicial: string;
 
   @Column()
-  interes_diferido: string
+  interes_diferido: string;
 
   @Column()
-  interes_vencido: string
+  interes_vencido: string;
+  // sfd
+  @Column()
+  descuento: string;
 
   @Column()
-  descuento: string
+  ubicacion_anterior: string;
 
   @Column()
-  ubicacion_anterior: string
+  ubicacion: string;
 
   @Column()
-  ubicacion: string
+  estado: string;
 
   @Column()
-  estado: string
+  fecha_nif: string;
 
   @Column()
-  fecha_nif: string
+  estado_nif: string;
 
   @Column()
-  estado_nif: string
+  fecha_creacion: string;
 
   @Column()
-  fecha_creacion: string
+  usuario_creador: string;
 
   @Column()
-  usuario_creador: string
+  observacion: string;
 
   @Column()
-  observacion: string
+  id: string;
 
   @Column()
-  id: string
+  tipo: string;
 
   @Column()
-  tipo: string
+  activo: string;
 
   @Column()
-  activo: string
+  saldo_capital: string;
 
   @Column()
-  saldo_capital: string
+  proceso: string;
 
   @Column()
-  proceso: string
+  proceso_id: string;
 
   @Column()
-  proceso_id: string
+  motivo_inactivo: string;
 
   @Column()
-  motivo_inactivo: string
+  nuevo_interes_compensatorio: string;
 
   @Column()
-  nuevo_interes_compensatorio: string
+  nuevo_interes_inicial: string;
 
   @Column()
-  nuevo_interes_inicial: string
+  descuento_interes_inicial: string;
 
   @Column()
-  descuento_interes_inicial: string
-
-  @Column()
-  descuento_interes_diferido: string
+  descuento_interes_diferido: string;
 }
